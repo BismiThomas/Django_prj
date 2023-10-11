@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekart add product</title>
+</head>
+<body>
+    <h1 align="center">Update product</h1>
+    {% for x in product %}
+    <form method="POST">
+        {% csrf_token %}
+       <table align="center"><br><br><br>
+          <tr>
+            <td><strong>Product name:</strong></td>
+            <td><input type="text" name="pname" value="{{x.name}}"id=""></input>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>Price(per item):</strong></td>
+            <td><input type="number" name="price" value="{{x.price}}" id=""></input></td>
+          </tr>
+
+          <tr>
+            <td><strong>Quantity:</strong></td>
+            <td><input type="number" name="qty" value="{{x.qty}}" id=""></input></td>
+          </tr>
+
+          <tr>
+            <td><strong>Category:</strong></td>
+            <td><select name="cat" id="">
+            {% if x.cat == 1 %}
+            <option value="1">Mobile</option>
+            {% elif x.cat == 2 %}
+            <option value="2">Shoes</option>
+            {% else %}
+            <option value="3">Clothes</option>
+             {% endif %}
+
+                <option value="1">Mobile</option>
+                <option value="2">Shoes</option>
+                <option value="3">Clothes</option>
+            </select></td>
+          </tr>
+
+          <tr>
+            <td><strong>Is available?:</strong></td>
+            {% if else %}
+            <td><input type="radio" value="1" name="avail" checked>YES</input>
+            <input type="radio" value="0" name="avail">NO</input></td>
+            {% else %}
+            <td><input type="radio" value="1" name="avail">YES</input>
+                <input type="radio" value="0" name="avail" checked>NO</input></td>
+                {%endif%}
+          </tr>
+          
+          <tr>
+            <td colspan="2" align="center"><input type="submit" value="Update product"></td>
+          </tr>
+       </table>
+
+    </form>
+    {% endfor %}
+    <a href="/productapp/productdash"><button>Back</button></a>
+</body>
+</html>

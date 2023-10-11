@@ -1,0 +1,18 @@
+virtual environment
+=====================
+step1: download and install vitualenv module
+      pip install virtualenv =>one time
+
+step2: create virtual environmentvirtualenv environmentname
+       virtualenv environmentname
+
+       virtualenv env or python -m virtualenv env =>one time
+
+step3: activate virtual env
+       env\Scripts\activate
+
+       deactivate:
+       env\Scripts\deactivate
+
+step4: Install django
+       pip install django
